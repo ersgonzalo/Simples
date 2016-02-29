@@ -1,0 +1,84 @@
+<div class="wrapper">
+    <img id="slide" src="" />
+</div>
+
+<div class="wrapper">
+    <img id="slide2" src="" />
+</div>
+
+<div class="wrapper" id="ded1">
+    <img id="slide2" src="" />
+</div>
+<button id="left">Left</button>
+<button id="right">Right</button>
+
+<style>
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100px;
+    height: 100px; 
+    border: 1px solid black;
+}
+
+#slide {
+    position: absolute;
+    left: 100px;
+    width: 100px;
+    height: 100px;
+    background: blue;
+    animation: slide 0.5s forwards;
+    opacity: 0;
+}
+@keyframes slide {
+    100% { left: 0; opacity: 0.5;}
+}
+
+#slide2 {
+    position: absolute;
+    left: -100px;
+    width: 100px;
+    height: 100px;
+    background: blue;
+    animation: slide2 0.5s forwards;
+    opacity: 0;
+}
+@keyframes slide2 {
+    100% { left: 0; opacity: 0.5;}
+}
+#ded1{
+  opacity: 1;
+}
+.lefter{
+  animation: lefty 0.5s forwards;
+}
+.righter{
+  animation: righty 0.5s forwards;
+}
+@keyframes lefty{
+
+99% {transform: translateX(-50%); opacity: 0;}
+100% {transform: translateX(0%); opacity: 1;}
+}
+@keyframes righty{
+  99% {transform: translateX(50%); opacity: 0;}
+  100% {transform: translateX(0%); opacity: 1;}
+}
+	
+</style>
+
+<script>
+var maxClass = document.getElementById('ded1').classList;
+
+document.getElementById('left').onclick=function(){
+	maxClass.remove('righter');
+  maxClass.remove('lefter');
+	maxClass.add('lefter');
+}
+document.getElementById('right').onclick=function(){
+	maxClass.remove('lefter');
+  maxClass.remove('righter');
+	maxClass.add('righter');
+}
+
+</script>
